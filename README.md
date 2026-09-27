@@ -110,16 +110,5 @@ bench clear-cache
 
 ---
 
-## 🧪 Automated Testing
-
-Unit tests are implemented under the `tests` module using Frappe's test runner framework:
-
-```bash
-# Run app-specific unit tests
-bench --site your-site.test run-tests --app equipment_maintenance
-```
-
----
-
 ## 📄 License
 MIT

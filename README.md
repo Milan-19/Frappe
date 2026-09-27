@@ -1,27 +1,5 @@
 # 🛠️ Equipment Maintenance Tracker (`equipment_maintenance`)
 
-> A custom, full-stack enterprise extension built on the **Frappe Framework**. Designed to demonstrate end-to-end domain modeling, server-side ORM logic, client-side event scripting, business workflows, and reporting in Frappe—with direct architectural parallels to **Odoo**.
-
----
-
-## 🔁 Odoo to Frappe Conceptual Mapping
-
-For technical reviewers evaluating full-stack ERP framework fluency, here is how the core architecture of this app maps from Odoo to Frappe:
-
-| Odoo Concept | Frappe Implementation | Implementation in this App |
-| :--- | :--- | :--- |
-| `models.Model` | **DocType** | `Equipment`, `Equipment Maintenance Log` |
-| `fields.One2many` / Line Items | **Child DocType / Table Field** | `Maintenance Task Item` embedded in parent log |
-| `fields.Many2one` | **Link Field** | `equipment` field linking Log to Equipment master |
-| `@api.constrains` | **`validate()` Controller Method** | Server-side validation preventing invalid completion dates |
-| `@api.model` / RPC Endpoints | **`@frappe.whitelist()` API** | `get_open_logs_count()` endpoint exposed to AJAX/REST |
-| `self.env['model'].search()` | **`frappe.db.get_list()` / ORM** | Python ORM queries inside Python controllers |
-| OWL Component Patch / Form JS | **`frappe.ui.form.on()` Scripting** | Client-side button insertion & async RPC handling |
-| `ir.cron` Scheduled Actions | **`hooks.py` Scheduler Events** | Daily background checks for overdue maintenance |
-| `ir.model.access.csv` & Rules | **DocPerm / Role-Based Access** | Granular permissions for Technicians vs Managers |
-
----
-
 ## 🚀 Key Features & Technical Highlights
 
 ### 1. Data Modeling & Relationships (DocTypes)
